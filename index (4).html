@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Laboratorios Zorion · Independent R&D Lab</title>
+<meta name="description" content="Independent research laboratory. Proprietary engines for AI, audio, and adjacent domains. Products that work, not whitepapers.">
+<meta property="og:title" content="Laboratorios Zorion · Independent R&D Lab">
+<meta property="og:description" content="Proprietary engines for AI, audio, and adjacent domains. Demos you can download today.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Space+Mono:wght@400;700&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#050507; --bg-soft:#0b0b10; --ink:#f4f3f0; --muted:#8a8a96;
+    --line:rgba(255,255,255,.08);
+    --omega-a:#48DEB1; --omega-b:#DD48DE; --omega-c:#B4DE48;
+    --display:'Fraunces',serif; --body:'Manrope',sans-serif; --mono:'Space Mono',monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:var(--body);font-weight:300;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body::before{content:"";position:fixed;inset:0;background:
+      radial-gradient(60% 50% at 75% 8%, rgba(72,222,177,.07), transparent 60%),
+      radial-gradient(50% 45% at 12% 30%, rgba(221,72,222,.06), transparent 60%),
+      radial-gradient(55% 50% at 50% 110%, rgba(180,222,72,.05), transparent 60%);
+      pointer-events:none;z-index:0}
+  body::after{content:"";position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.035;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+  .wrap{position:relative;z-index:2;max-width:1080px;margin:0 auto;padding:0 28px}
+  nav{display:flex;align-items:center;justify-content:space-between;padding:30px 0}
+  .brand{display:flex;align-items:center;gap:12px;font-family:var(--mono);font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink)}
+  .brand svg{width:26px;height:26px}
+  nav .mail{font-family:var(--mono);font-size:12px;letter-spacing:.05em;color:var(--muted);text-decoration:none;transition:color .3s}
+  nav .mail:hover{color:var(--ink)}
+  header{padding:9vh 0 7vh}
+  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--muted);margin-bottom:34px;opacity:0;animation:rise .9s .1s forwards}
+  h1{font-family:var(--display);font-weight:400;font-size:clamp(2.6rem,7vw,5.4rem);line-height:1.02;letter-spacing:-.02em;max-width:14ch;opacity:0;animation:rise 1s .25s forwards}
+  h1 em{font-style:italic;color:transparent;background:linear-gradient(100deg,var(--omega-a),var(--omega-b) 55%,var(--omega-c));-webkit-background-clip:text;background-clip:text}
+  .lede{margin-top:34px;max-width:52ch;font-size:1.12rem;color:#cfcfd6;font-weight:300;opacity:0;animation:rise 1s .45s forwards}
+  .creed{margin-top:22px;font-family:var(--mono);font-size:12.5px;letter-spacing:.04em;color:var(--muted);opacity:0;animation:rise 1s .6s forwards}
+  .lbl{display:flex;align-items:center;gap:16px;margin:0 0 38px;font-family:var(--mono);font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--muted)}
+  .lbl::after{content:"";flex:1;height:1px;background:var(--line)}
+  section{padding:5vh 0}
+  .grid{display:grid;gap:22px}
+  .card{position:relative;border:1px solid var(--line);border-radius:18px;padding:34px 32px;background:linear-gradient(180deg,rgba(255,255,255,.022),transparent);overflow:hidden;transition:border-color .4s,transform .4s}
+  .card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(180deg,var(--omega-a),var(--omega-b),var(--omega-c));opacity:.5;transition:opacity .4s,width .4s}
+  .card:hover{border-color:rgba(255,255,255,.18);transform:translateY(-3px)}
+  .card:hover::before{opacity:1;width:5px}
+  .card .top{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  .card h3{font-family:var(--display);font-weight:500;font-size:1.7rem;letter-spacing:-.01em}
+  .card .status{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--omega-a);border:1px solid rgba(72,222,177,.3);border-radius:999px;padding:5px 12px;white-space:nowrap}
+  .card .status.soon{color:var(--muted);border-color:var(--line)}
+  .card p{margin-top:16px;max-width:60ch;color:#bdbdc6;font-size:1rem}
+  .actions{margin-top:26px;display:flex;flex-wrap:wrap;gap:12px}
+  .btn{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-decoration:none;border-radius:10px;padding:12px 20px;transition:transform .3s,background .3s,border-color .3s}
+  .btn-primary{background:linear-gradient(100deg,var(--omega-a),var(--omega-b) 60%,var(--omega-c));color:#070708;font-weight:600}
+  .btn-primary:hover{transform:translateY(-2px)}
+  .btn-ghost{border:1px solid var(--line);color:var(--ink)}
+  .btn-ghost:hover{border-color:rgba(255,255,255,.35)}
+  .btn-ghost span{transition:transform .3s}
+  .btn-ghost:hover span{transform:translateX(5px)}
+  .card.locked .actions{opacity:.5}
+  .card.locked{cursor:default}
+  .about{border-top:1px solid var(--line);padding:7vh 0}
+  .about p{max-width:60ch;font-size:1.18rem;font-weight:300;color:#d6d6dc}
+  .about .meta{margin-top:40px;display:flex;flex-wrap:wrap;gap:14px 38px;font-family:var(--mono);font-size:12px;letter-spacing:.04em;color:var(--muted)}
+  .about .meta b{color:var(--ink);font-weight:400}
+  footer{border-top:1px solid var(--line);padding:46px 0 70px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px}
+  footer .who{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;color:var(--muted)}
+  footer .links{display:flex;gap:24px;flex-wrap:wrap}
+  footer a{font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;color:var(--muted);text-decoration:none;transition:color .3s}
+  footer a:hover{color:var(--ink)}
+  @keyframes rise{to{opacity:1;transform:none}}
+  .eyebrow,h1,.lede,.creed{transform:translateY(14px)}
+  @media(max-width:560px){nav .mail{display:none}.card{padding:28px 24px}header{padding:7vh 0 5vh}.btn{flex:1;justify-content:center}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <nav>
+    <div class="brand">
+      <svg viewBox="0 0 100 100" fill="none" aria-hidden="true">
+        <defs><linearGradient id="og" x1="0" y1="0" x2="100" y2="100" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#48DEB1"/><stop offset=".5" stop-color="#DD48DE"/><stop offset="1" stop-color="#B4DE48"/>
+        </linearGradient></defs>
+        <path d="M28 78 C28 78 14 66 14 46 C14 24 30 12 50 12 C70 12 86 24 86 46 C86 66 72 78 72 78" stroke="url(#og)" stroke-width="9" stroke-linecap="round" fill="none"/>
+        <line x1="18" y1="80" x2="38" y2="80" stroke="url(#og)" stroke-width="9" stroke-linecap="round"/>
+        <line x1="62" y1="80" x2="82" y2="80" stroke="url(#og)" stroke-width="9" stroke-linecap="round"/>
+      </svg>
+      Laboratorios Zorion
+    </div>
+    <a class="mail" href="mailto:laboratorioszorion@gmail.com">laboratorioszorion@gmail.com</a>
+  </nav>
+
+  <header>
+    <div class="eyebrow">Independent R&amp;D laboratory · Ecuador · 2026</div>
+    <h1>The <em>impossible</em>, working.</h1>
+    <p class="lede">We build proprietary engines for artificial intelligence, audio, and adjacent domains. We ship products that work — not whitepapers.</p>
+    <p class="creed">On-device · real-time · offline where others need the cloud.</p>
+  </header>
+
+  <section id="products">
+    <div class="lbl">Products in evaluation</div>
+    <div class="grid">
+
+      <div class="card">
+        <div class="top">
+          <h3>Personalities</h3>
+          <div class="status">Demo available</div>
+        </div>
+        <p>Specialized AI agents that don't lose their identity across the conversation — under adversarial input, in multiple languages, without retraining the base model.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="https://github.com/Damiantorresr/personalities/releases/latest/download/personalities-demo-v0.1.0.apk">Download APK ↓</a>
+          <a class="btn btn-ghost" href="https://damiantorresr.github.io/personalities/">View laboratory <span>→</span></a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="top">
+          <h3>Transformer 2.0</h3>
+          <div class="status">Demo available</div>
+        </div>
+        <p>Audio codec with bit-perfect cryptographic verification and a native C++ engine. Shareable end-to-end, no backend, no cloud dependency. The decoder is the app.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="https://github.com/Damiantorresr/transformer-codec/releases/latest/download/transformer-demo-v2.0.0.apk">Download APK ↓</a>
+          <a class="btn btn-ghost" href="https://damiantorresr.github.io/transformer-codec/">View the codec <span>→</span></a>
+        </div>
+      </div>
+
+      <div class="card locked">
+        <div class="top">
+          <h3>Byhide</h3>
+          <div class="status soon">Coming soon</div>
+        </div>
+        <p>Internet radio with true spatial sound. A category that didn't exist until we built it.</p>
+        <div class="actions">
+          <span class="btn btn-ghost">In preparation</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="lbl">About the lab</div>
+    <p>We don't build by accident. Every product is deliberate engineering, verified on the evaluator's own device. Additional research under NDA — reach out.</p>
+    <div class="meta">
+      <span><b>Field</b> · Research Services</span>
+      <span><b>Founded</b> · 2026</span>
+      <span><b>Team</b> · Independent</span>
+      <span><b>Contact</b> · laboratorioszorion@gmail.com</span>
+    </div>
+  </section>
+
+  <footer>
+    <div class="who">Alex Damián Torres Robalino · Laboratorios Zorion · © 2026</div>
+    <div class="links">
+      <a href="https://github.com/Damiantorresr">GitHub</a>
+      <a href="https://damiantorresr.github.io/personalities/">Personalities</a>
+      <a href="https://damiantorresr.github.io/transformer-codec/">Transformer</a>
+      <a href="mailto:laboratorioszorion@gmail.com">Contact</a>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
