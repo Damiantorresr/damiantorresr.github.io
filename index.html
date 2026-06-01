@@ -31,10 +31,11 @@
   .wrap{position:relative;z-index:2;max-width:1080px;margin:0 auto;padding:0 28px}
   nav{display:flex;align-items:center;justify-content:space-between;padding:30px 0}
   .brand{display:flex;align-items:center;gap:12px;font-family:var(--mono);font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink)}
-  .brand svg{width:26px;height:26px}
+  .brand img{width:34px;height:34px;border-radius:9px;object-fit:cover}
   nav .mail{font-family:var(--mono);font-size:12px;letter-spacing:.05em;color:var(--muted);text-decoration:none;transition:color .3s}
   nav .mail:hover{color:var(--ink)}
   header{padding:9vh 0 7vh}
+  .hero-logo{width:96px;height:96px;border-radius:22px;object-fit:cover;margin-bottom:34px;box-shadow:0 24px 60px -20px rgba(160,107,232,.5);opacity:0;animation:rise .9s .05s forwards}
   .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--muted);margin-bottom:34px;opacity:0;animation:rise .9s .1s forwards}
   h1{font-family:var(--display);font-weight:400;font-size:clamp(2.6rem,7vw,5.4rem);line-height:1.02;letter-spacing:-.02em;max-width:14ch;opacity:0;animation:rise 1s .25s forwards}
   h1 em{font-style:italic;color:transparent;background:linear-gradient(100deg,var(--omega-a),var(--omega-b) 55%,var(--omega-c));-webkit-background-clip:text;background-clip:text}
@@ -82,20 +83,14 @@
 
   <nav>
     <div class="brand">
-      <svg viewBox="0 0 100 100" fill="none" aria-hidden="true">
-        <defs><linearGradient id="og" x1="0" y1="0" x2="100" y2="100" gradientUnits="userSpaceOnUse">
-          <stop stop-color="#48DEB1"/><stop offset=".5" stop-color="#DD48DE"/><stop offset="1" stop-color="#B4DE48"/>
-        </linearGradient></defs>
-        <path d="M28 78 C28 78 14 66 14 46 C14 24 30 12 50 12 C70 12 86 24 86 46 C86 66 72 78 72 78" stroke="url(#og)" stroke-width="9" stroke-linecap="round" fill="none"/>
-        <line x1="18" y1="80" x2="38" y2="80" stroke="url(#og)" stroke-width="9" stroke-linecap="round"/>
-        <line x1="62" y1="80" x2="82" y2="80" stroke="url(#og)" stroke-width="9" stroke-linecap="round"/>
-      </svg>
+      <img src="zorion_logo_FINAL.png" alt="Laboratorios Zorion logo">
       Laboratorios Zorion
     </div>
     <a class="mail" href="mailto:laboratorioszorion@gmail.com">laboratorioszorion@gmail.com</a>
   </nav>
 
   <header>
+    <img class="hero-logo" src="zorion_logo_FINAL.png" alt="Laboratorios Zorion">
     <div class="eyebrow">Independent R&amp;D laboratory · Ecuador · 2026</div>
     <h1>The <em>impossible</em>, working.</h1>
     <p class="lede">We build proprietary engines for artificial intelligence, audio, and adjacent domains. We ship products that work — not whitepapers.</p>
@@ -130,14 +125,14 @@
         </div>
       </div>
 
-      <div class="card locked">
+      <div class="card">
         <div class="top">
           <h3>Byhide</h3>
-          <div class="status soon">Coming soon</div>
+          <div class="status">Live demo</div>
         </div>
-        <p>Internet radio with true spatial sound. A category that didn't exist until we built it.</p>
+        <p>Internet radio with true spatial sound. Four listening modes, dynamic motion, 140+ curated stations. A category that didn't exist until we built it.</p>
         <div class="actions">
-          <span class="btn btn-ghost">In preparation</span>
+          <a class="btn btn-primary" href="https://damiantorresr.github.io/radio-byhide/">Open Byhide →</a>
         </div>
       </div>
 
